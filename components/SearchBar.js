@@ -9,7 +9,7 @@ export default function SearchBar({ initialValue = "" }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push(`/search?q=${encodeURIComponent(query)}`);
+    if (query !== "") router.push(`/search?q=${encodeURIComponent(query)}`);
   };
 
   return (
@@ -17,14 +17,14 @@ export default function SearchBar({ initialValue = "" }) {
       <div className="relative">
         <input
           type="text"
-          placeholder="Search guides..."
+          placeholder="Search"
           className="w-full px-6 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button
           type="submit"
-          className="absolute right-3 top-3 px-4 py-1.5 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="absolute right-3 top-2 px-4 py-1.5 bg-blue-500 text-white rounded-md hover:bg-blue-600"
         >
           Search
         </button>
