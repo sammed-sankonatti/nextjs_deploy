@@ -62,11 +62,11 @@ const metadata = [
 ];
 
 async function getSearchResults(query) {
-  // const res = await fetch(
-  //   `${process.env.NEXT_PUBLIC_API_URL}/metadata?q=${query}`
-  // );
-  // return res.json();
-  return metadata;
+  const res = await fetch(
+    `https://moodle.drillbitplagiarismcheck.com/api/metadata?q=${query}`
+  );
+  return res.json();
+  // return metadata;
 }
 
 async function getGuideDetail(id) {
