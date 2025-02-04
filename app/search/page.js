@@ -65,6 +65,8 @@ async function getSearchResults(query) {
   const res = await fetch(
     `https://moodle.drillbitplagiarismcheck.com/api/metadata?q=${query}`
   );
+  console.log("res == ", res.json());
+
   return res.json();
   // return metadata;
 }
